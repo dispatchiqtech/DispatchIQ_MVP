@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -39,8 +40,11 @@ const Header = () => {
             <Button variant="ghost" size="sm" className="hidden sm:inline-flex hover:bg-muted/50 transition-all duration-300">
               Sign In
             </Button>
-            <Button variant="premium" size="sm" className="shadow-md hover:shadow-red-glow transition-all duration-300 hover:scale-105">
-              Get Started
+            <Button asChild variant="outline" size="sm" className="border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300">
+              <Link to="/early-signup">Early Access</Link>
+            </Button>
+            <Button asChild variant="premium" size="sm" className="shadow-md hover:shadow-red-glow transition-all duration-300 hover:scale-105">
+              <Link to="/early-signup">Get Started</Link>
             </Button>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Users, TrendingUp } from "lucide-react";
 import heroImage from "@/assets/dispatch-hero.jpg";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -8,7 +9,7 @@ const HeroSection = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={heroImage} 
+          src={''} 
           alt="AI Dispatch Dashboard" 
           className="w-full h-full object-cover opacity-20"
         />
@@ -64,12 +65,14 @@ const HeroSection = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-in-right" style={{ animationDelay: '0.8s' }}>
-            <Button variant="hero" size="xl" className="group shadow-red-glow hover:shadow-intense transition-all duration-500 animate-pulse-red">
-              Request Demo
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            <Button asChild variant="hero" size="xl" className="group shadow-red-glow hover:shadow-intense transition-all duration-500 animate-pulse-red">
+              <Link to="/early-signup">
+                Request Demo
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
             </Button>
-            <Button variant="outline" size="xl" className="bg-card/60 backdrop-blur-sm border-secondary/20 hover:border-primary/40 hover:bg-card/80 hover:shadow-subtle transition-all duration-300">
-              Watch Video
+            <Button asChild variant="outline" size="xl" className="bg-card/60 backdrop-blur-sm border-secondary/20 hover:border-primary/40 hover:bg-card/80 hover:shadow-subtle transition-all duration-300">
+              <Link to="/early-signup">Early Access</Link>
             </Button>
           </div>
         </div>
