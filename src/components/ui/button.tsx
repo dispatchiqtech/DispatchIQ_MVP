@@ -9,16 +9,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary-hover shadow-md hover:shadow-lg",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-hero text-white hover:scale-105 hover:shadow-glow font-semibold",
-        premium: "bg-gradient-primary text-white hover:scale-105 hover:shadow-glow border border-primary-glow/20",
-        accent: "bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-105 shadow-md hover:shadow-lg",
-        success: "bg-success text-success-foreground hover:bg-success/90 shadow-md hover:shadow-lg",
+        default: "bg-primary text-primary-foreground hover:bg-primary-hover shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 hover:scale-105 transition-all duration-300",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground hover:border-primary/50 hover:scale-105 transition-all duration-300",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:scale-105 transition-all duration-300",
+        ghost: "hover:bg-accent hover:text-accent-foreground hover:scale-105 transition-all duration-300",
+        link: "text-primary underline-offset-4 hover:underline transition-all duration-300",
+        hero: "bg-gradient-hero text-white hover:scale-110 hover:shadow-intense font-semibold border border-primary/20 backdrop-blur-sm transition-all duration-500",
+        premium: "bg-gradient-primary text-white hover:scale-110 hover:shadow-red-glow border border-primary-glow/30 backdrop-blur-sm transition-all duration-500 animate-glow-pulse",
+        accent: "bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-105 shadow-md hover:shadow-lg transition-all duration-300",
+        success: "bg-success text-success-foreground hover:bg-success/90 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",
