@@ -6,43 +6,43 @@ const features = [
     icon: Bot,
     title: "AI-Driven Technician Scoring",
     description: "Intelligent matching based on location, availability, tier level, and profitability metrics for optimal job assignment.",
-    gradient: "from-primary to-primary-glow",
+    gradient: "from-primary to-secondary",
   },
   {
     icon: Smartphone,
     title: "Real-time Dispatch Tracking",
     description: "Progressive Web App with SMS and email notifications for instant status updates and seamless communication.",
-    gradient: "from-accent to-accent-glow",
+    gradient: "from-secondary to-accent",
   },
   {
     icon: BarChart3,
     title: "Automated Reporting",
     description: "Comprehensive analytics, automated invoicing, and compliance management to streamline your operations.",
-    gradient: "from-success to-success",
+    gradient: "from-primary to-accent",
   },
   {
     icon: Cog,
     title: "API-First Architecture",
     description: "Built for integration and scalability with existing property management systems and future licensing opportunities.",
-    gradient: "from-warning to-warning",
+    gradient: "from-secondary to-primary",
   },
   {
     icon: Users,
     title: "Subcontractor Management",
     description: "Complete lifecycle management from onboarding to payment, with performance tracking and tier-based assignments.",
-    gradient: "from-primary-glow to-accent",
+    gradient: "from-primary to-secondary",
   },
   {
     icon: Zap,
     title: "White-label Ready",
     description: "Scalable infrastructure provider positioning for licensing to other companies and custom branding opportunities.",
-    gradient: "from-accent-glow to-primary",
+    gradient: "from-accent to-primary",
   },
 ];
 
 const FeaturesSection = () => {
   return (
-    <section className="py-24 bg-muted/30">
+    <section className="py-24 bg-card/20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -61,7 +61,7 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <Card
               key={feature.title}
-              className="p-8 bg-gradient-card border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-card group animate-scale-in"
+              className="p-8 bg-card/60 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-teal-glow/20 group animate-scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="space-y-4">

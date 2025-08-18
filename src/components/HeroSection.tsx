@@ -17,17 +17,17 @@ const HeroSection = () => {
       </div>
       
       {/* Animated Background Elements */}
-      <div className="absolute top-20 left-20 w-24 h-24 bg-primary/20 rounded-full blur-xl animate-pulse-red" />
+      <div className="absolute top-20 left-20 w-24 h-24 bg-primary/20 rounded-full blur-xl animate-pulse-teal" />
       <div className="absolute bottom-20 right-20 w-32 h-32 bg-accent/30 rounded-full blur-xl animate-glow-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 left-10 w-20 h-20 bg-primary-glow/25 rounded-full blur-lg animate-float" style={{ animationDelay: '2s' }} />
+      <div className="absolute top-1/2 left-10 w-20 h-20 bg-primary/25 rounded-full blur-lg animate-float" style={{ animationDelay: '2s' }} />
       <div className="absolute bottom-1/3 left-1/3 w-16 h-16 bg-primary/15 rounded-full blur-lg animate-bounce-in" style={{ animationDelay: '3s' }} />
       <div className="absolute top-1/3 right-1/4 w-12 h-12 bg-secondary/20 rounded-full blur-md animate-wiggle" style={{ animationDelay: '4s' }} />
       
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
-        <div className="space-y-8 animate-fade-in-up">
+              {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <div className="space-y-8 animate-fade-in-up mt-20 md:mt-0">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-card/90 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-2 shadow-red-glow/50 animate-bounce-in">
+          <div className="inline-flex items-center gap-2 bg-card/90 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-2 shadow-teal-glow/50 animate-bounce-in">
             <Zap className="w-4 h-4 text-primary animate-pulse" />
             <span className="text-sm font-medium text-muted-foreground">AI-Powered Dispatch Platform</span>
           </div>
@@ -65,7 +65,7 @@ const HeroSection = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-in-right" style={{ animationDelay: '0.8s' }}>
-            <Button asChild variant="hero" size="xl" className="group shadow-red-glow hover:shadow-intense transition-all duration-500 animate-pulse-red">
+            <Button asChild variant="hero" size="xl" className="group shadow-teal-glow hover:shadow-intense transition-all duration-500 animate-pulse-teal">
               <Link to="/early-signup">
                 Request Demo
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

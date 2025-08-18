@@ -9,7 +9,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-gradient-hero rounded-lg flex items-center justify-center shadow-md group-hover:shadow-red-glow transition-all duration-300 group-hover:scale-110">
+            <div className="w-8 h-8 bg-gradient-hero rounded-lg flex items-center justify-center shadow-md group-hover:shadow-teal-glow transition-all duration-300 group-hover:scale-110">
               <Zap className="w-5 h-5 text-white group-hover:animate-pulse" />
             </div>
             <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">DispatchIQ</span>

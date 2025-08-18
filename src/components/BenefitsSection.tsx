@@ -38,7 +38,7 @@ const BenefitsSection = () => {
                   className="flex items-start gap-3 animate-slide-in-right"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <CheckCircle className="w-6 h-6 text-success flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
                   <span className="text-foreground">{benefit}</span>
                 </div>
               ))}
@@ -53,7 +53,7 @@ const BenefitsSection = () => {
           
           {/* Stats Cards */}
           <div className="grid grid-cols-2 gap-6 animate-scale-in" style={{ animationDelay: '0.3s' }}>
-            <div className="bg-gradient-card backdrop-blur-sm border border-primary/10 rounded-xl p-6 shadow-card hover:shadow-lg transition-all duration-300">
+            <div className="bg-card/60 backdrop-blur-sm border border-primary/20 rounded-xl p-6 shadow-teal-glow/20 hover:shadow-teal-glow/40 transition-all duration-300">
               <div className="space-y-2">
                 <TrendingUp className="w-8 h-8 text-primary" />
                 <div className="text-2xl font-bold text-foreground">$2.4M+</div>
@@ -61,25 +61,25 @@ const BenefitsSection = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-card backdrop-blur-sm border border-accent/10 rounded-xl p-6 shadow-card hover:shadow-lg transition-all duration-300">
+            <div className="bg-card/60 backdrop-blur-sm border border-secondary/20 rounded-xl p-6 shadow-purple-glow/20 hover:shadow-purple-glow/40 transition-all duration-300">
               <div className="space-y-2">
-                <Clock className="w-8 h-8 text-accent" />
+                <Clock className="w-8 h-8 text-secondary" />
                 <div className="text-2xl font-bold text-foreground">15min</div>
                 <div className="text-sm text-muted-foreground">Avg Response Time</div>
               </div>
             </div>
             
-            <div className="bg-gradient-card backdrop-blur-sm border border-success/10 rounded-xl p-6 shadow-card hover:shadow-lg transition-all duration-300">
+            <div className="bg-card/60 backdrop-blur-sm border border-primary/20 rounded-xl p-6 shadow-teal-glow/20 hover:shadow-teal-glow/40 transition-all duration-300">
               <div className="space-y-2">
-                <Shield className="w-8 h-8 text-success" />
+                <Shield className="w-8 h-8 text-primary" />
                 <div className="text-2xl font-bold text-foreground">99.9%</div>
                 <div className="text-sm text-muted-foreground">Uptime SLA</div>
               </div>
             </div>
             
-            <div className="bg-gradient-card backdrop-blur-sm border border-warning/10 rounded-xl p-6 shadow-card hover:shadow-lg transition-all duration-300">
+            <div className="bg-card/60 backdrop-blur-sm border border-secondary/20 rounded-xl p-6 shadow-purple-glow/20 hover:shadow-purple-glow/40 transition-all duration-300">
               <div className="space-y-2">
-                <TrendingUp className="w-8 h-8 text-warning" />
+                <TrendingUp className="w-8 h-8 text-secondary" />
                 <div className="text-2xl font-bold text-foreground">500+</div>
                 <div className="text-sm text-muted-foreground">Jobs Optimized Daily</div>
               </div>

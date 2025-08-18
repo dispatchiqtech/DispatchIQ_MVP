@@ -54,7 +54,7 @@ const TeamSection = () => {
   return (
     <section className="py-24 bg-gradient-to-b from-background to-card/20 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute top-10 left-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl animate-pulse-red" />
+      <div className="absolute top-10 left-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl animate-pulse-teal" />
       <div className="absolute bottom-20 right-20 w-40 h-40 bg-accent/15 rounded-full blur-2xl animate-glow-pulse" style={{ animationDelay: '1s' }} />
       <div className="absolute top-1/3 right-10 w-24 h-24 bg-secondary/10 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }} />
       
@@ -82,7 +82,7 @@ const TeamSection = () => {
           {teamMembers.map((member, index) => (
             <Card 
               key={member.name}
-              className="group relative overflow-hidden bg-card/60 backdrop-blur-sm border-secondary/20 hover:border-primary/40 hover:shadow-red-glow/30 transition-all duration-500 animate-fade-in-up"
+              className="group relative overflow-hidden bg-card/60 backdrop-blur-sm border-secondary/20 hover:border-primary/40 hover:shadow-teal-glow/30 transition-all duration-500 animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-6 text-center space-y-4">
@@ -165,8 +165,8 @@ const TeamSection = () => {
               </p>
             </div>
             <div className="space-y-3">
-              <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
-                <div className="w-8 h-8 bg-accent rounded-lg" />
+              <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
+                <div className="w-8 h-8 bg-secondary rounded-lg" />
               </div>
               <h4 className="text-lg font-semibold text-foreground">Customer Success</h4>
               <p className="text-muted-foreground text-sm">
@@ -174,8 +174,8 @@ const TeamSection = () => {
               </p>
             </div>
             <div className="space-y-3">
-              <div className="w-16 h-16 bg-success/10 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
-                <div className="w-8 h-8 bg-success rounded-lg" />
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
+                <div className="w-8 h-8 bg-primary rounded-lg" />
               </div>
               <h4 className="text-lg font-semibold text-foreground">Reliability</h4>
               <p className="text-muted-foreground text-sm">

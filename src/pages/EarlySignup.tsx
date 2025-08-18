@@ -74,7 +74,7 @@ const EarlySignup = () => {
   if (isSubmitted) {
     return (
       <div className="min-h-screen bg-gradient-mesh flex items-center justify-center px-6">
-        <Card className="w-full max-w-md text-center bg-card/80 backdrop-blur-sm border-primary/30 shadow-red-glow">
+        <Card className="w-full max-w-md text-center bg-card/80 backdrop-blur-sm border-primary/30 shadow-teal-glow">
           <CardContent className="pt-8 pb-8">
             <div className="w-20 h-20 bg-success/20 rounded-full flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="w-10 h-10 text-success" />
@@ -92,7 +92,7 @@ const EarlySignup = () => {
             </div>
             <Button 
               asChild 
-              className="w-full mt-6 bg-primary hover:bg-primary/90 shadow-red-glow"
+              className="w-full mt-6 bg-primary hover:bg-primary/90 shadow-teal-glow"
             >
               <Link to="/">
                 <ArrowLeft className="w-4 h-4 mr-2" />
@@ -165,7 +165,7 @@ const EarlySignup = () => {
           </div>
 
           {/* Right Side - Form */}
-          <Card className="bg-card/80 backdrop-blur-sm border-secondary/20 shadow-red-glow/20">
+          <Card className="bg-card/80 backdrop-blur-sm border-secondary/20 shadow-teal-glow/20">
             <CardHeader className="text-center space-y-2">
               <CardTitle className="text-2xl font-bold">Join Early Access</CardTitle>
               <CardDescription className="text-muted-foreground">
@@ -278,7 +278,7 @@ const EarlySignup = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-primary/90 shadow-red-glow hover:shadow-intense transition-all duration-300 disabled:opacity-50"
+                  className="w-full bg-primary hover:bg-primary/90 shadow-teal-glow hover:shadow-intense transition-all duration-300 disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>
