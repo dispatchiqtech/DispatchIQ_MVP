@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Building2, Users, TrendingUp, Handshake, ArrowRight } from "lucide-react";
+import { Building2, Users, TrendingUp, Handshake } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const ecosystemPartners = [
@@ -48,7 +48,7 @@ const BenefitsSection = () => {
               The Power of Two
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
             Together, they form a closed-loop profit system.
           </p>
         </div>
@@ -71,17 +71,12 @@ const BenefitsSection = () => {
                     {partner.title}
                   </h3>
                   
-                  <p className="text-muted-foreground leading-relaxed text-sm">
+                  <p className="text-foreground/70 leading-relaxed text-sm">
                     {partner.description}
                   </p>
                 </div>
                 
-                {/* Arrow connector */}
-                {index < ecosystemPartners.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                    <ArrowRight className="w-6 h-6 text-muted-foreground/50" />
-                  </div>
-                )}
+          
               </Card>
             ))}
           </div>
@@ -89,7 +84,7 @@ const BenefitsSection = () => {
 
         {/* Caption */}
         <div className="text-center mb-16">
-          <p className="text-lg text-muted-foreground italic">
+          <p className="text-lg text-foreground/80 italic">
             Together, they form a closed-loop profit system.
           </p>
         </div>
@@ -106,7 +101,7 @@ const BenefitsSection = () => {
                   Benefits
                 </span>
               </h3>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-foreground/80">
                 The synergy between FirstCall's subcontractor management and DispatchIQ's intelligent dispatch creates a powerful, profitable ecosystem for all stakeholders.
               </p>
             </div>
@@ -114,24 +109,24 @@ const BenefitsSection = () => {
             <div className="space-y-4">
               <div className="flex items-start gap-3 animate-slide-in-right">
                 <TrendingUp className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">Increased profitability through optimized job matching</span>
+                <span className="text-foreground/90">Increased profitability through optimized job matching</span>
               </div>
               <div className="flex items-start gap-3 animate-slide-in-right" style={{ animationDelay: '0.1s' }}>
                 <Users className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">Motivated subcontractors with fair compensation</span>
+                <span className="text-foreground/90">Motivated subcontractors with fair compensation</span>
               </div>
               <div className="flex items-start gap-3 animate-slide-in-right" style={{ animationDelay: '0.2s' }}>
                 <Building2 className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">Streamlined property management operations</span>
+                <span className="text-foreground/90">Streamlined property management operations</span>
               </div>
               <div className="flex items-start gap-3 animate-slide-in-right" style={{ animationDelay: '0.3s' }}>
                 <Handshake className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">Long-term partnerships and repeat business</span>
+                <span className="text-foreground/90">Long-term partnerships and repeat business</span>
               </div>
             </div>
             
             <div className="pt-4">
-              <Button variant="premium" size="xl" className="animate-pulse-glow">
+              <Button variant="premium" size="xl" className="">
                 Learn More About the Ecosystem
               </Button>
             </div>
@@ -145,7 +140,7 @@ const BenefitsSection = () => {
                   <Building2 className="w-8 h-8 text-primary" />
                 </div>
                 <h4 className="text-xl font-semibold text-foreground">FirstCall + DispatchIQ</h4>
-                <p className="text-muted-foreground">
+                <p className="text-foreground/80">
                   The perfect partnership for modern property maintenance
                 </p>
                 <div className="flex justify-center space-x-4">

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-mesh">
-      {/* Background Image with Overlay - Detroit Skyline + AI Circuit Patterns */}
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
         {/* AI Circuit Pattern Overlay */}
@@ -34,7 +33,7 @@ const HeroSection = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-card/90 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-2 shadow-teal-glow/50 animate-bounce-in">
             <Brain className="w-4 h-4 text-primary animate-pulse" />
-            <span className="text-sm font-medium text-muted-foreground">AI-Powered Dispatch System</span>
+            <span className="text-sm font-medium text-foreground/70">AI-Powered Dispatch System</span>
           </div>
           
           {/* Main Headline - Updated to match mockup */}
@@ -47,7 +46,7 @@ const HeroSection = () => {
           </h1>
           
           {/* Subheadline - Updated to match mockup */}
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-foreground/70 max-w-3xl mx-auto leading-relaxed">
             The first AI-powered dispatch system revolutionizing property maintenance.
           </p>
           
@@ -55,27 +54,25 @@ const HeroSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
             <div className="text-center animate-scale-in" style={{ animationDelay: '0.2s' }}>
               <div className="text-3xl font-bold text-primary">100B+</div>
-              <div className="text-sm text-muted-foreground">Market Size</div>
+              <div className="text-sm text-foreground/70">Market Size</div>
             </div>
             <div className="text-center animate-scale-in" style={{ animationDelay: '0.4s' }}>
               <div className="text-3xl font-bold text-accent">AI</div>
-              <div className="text-sm text-muted-foreground">Powered</div>
+              <div className="text-sm text-foreground/70">Powered</div>
             </div>
             <div className="text-center animate-scale-in" style={{ animationDelay: '0.6s' }}>
               <div className="text-3xl font-bold text-success">Detroit</div>
-              <div className="text-sm text-muted-foreground">Tech Hub</div>
+              <div className="text-sm text-foreground/70">Tech Hub</div>
             </div>
           </div>
           
-          {/* CTA Buttons - Updated to match mockup */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-in-right" style={{ animationDelay: '0.8s' }}>
-            <Button asChild variant="hero" size="xl" className="group shadow-teal-glow hover:shadow-intense transition-all duration-500 animate-pulse-teal">
-              <Link to="/early-signup">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center " style={{ animationDelay: '0.8s' }}>
+          <Button variant="hero" size="xl" className="w-full sm:w-auto text-black">
+          <Link to="/early-signup">
                 Request Investor Deck
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="xl" className="bg-card/60 backdrop-blur-sm border-secondary/20 hover:border-primary/40 hover:bg-card/80 hover:shadow-subtle transition-all duration-300">
+            <Button variant="outline-glow" size="xl" className="w-full sm:w-auto">
               <Link to="/early-signup">Join Pilot Program</Link>
             </Button>
           </div>

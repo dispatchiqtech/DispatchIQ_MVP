@@ -59,20 +59,18 @@ const FeaturesSection = () => {
   return (
     <section id="problem" className="py-24 bg-card/20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Problem Section */}
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            <span className="text-destructive">
-              Property Maintenance is Broken
-            </span>
+        <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
+            Property Maintenance is <span className="text-destructive">Broken</span>
           </h2>
         </div>
+
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {problems.map((problem, index) => (
             <Card
               key={problem.title}
-              className="p-6 bg-card/80 backdrop-blur-sm border-destructive/30 hover:border-destructive/50 transition-all duration-300 group animate-scale-in"
+              className="p-6 bg-card/20 backdrop-blur-sm border-destructive/30 hover:border-destructive/50 transition-all duration-300 group animate-scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="space-y-4 text-center">
@@ -84,7 +82,7 @@ const FeaturesSection = () => {
                   {problem.title}
                 </h3>
                 
-                <p className="text-muted-foreground leading-relaxed text-sm">
+                <p className="text-foreground/70 leading-relaxed text-sm">
                   {problem.description}
                 </p>
               </div>
@@ -102,7 +100,7 @@ const FeaturesSection = () => {
                 <div className="w-16 h-16 rounded-lg bg-destructive/20 p-4 mx-auto">
                   <AlertTriangle className="w-8 h-8 text-destructive" />
                 </div>
-                <p className="text-muted-foreground">Chaos, high costs, inefficiency</p>
+                <p className="text-foreground/70">Chaos, high costs, inefficiency</p>
               </div>
             </Card>
             
@@ -113,7 +111,7 @@ const FeaturesSection = () => {
                 <div className="w-16 h-16 rounded-lg bg-primary/20 p-4 mx-auto">
                   <CheckCircle className="w-8 h-8 text-primary" />
                 </div>
-                <p className="text-muted-foreground">Clean workflow, profit growth</p>
+                <p className="text-foreground/70">Clean workflow, profit growth</p>
               </div>
             </Card>
           </div>
@@ -144,7 +142,7 @@ const FeaturesSection = () => {
                   {solution.title}
                 </h3>
                 
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-foreground/70 leading-relaxed">
                   {solution.description}
                 </p>
               </div>

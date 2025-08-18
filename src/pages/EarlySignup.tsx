@@ -139,7 +139,7 @@ const EarlySignup = () => {
                 <br />
                 <span className="text-foreground">to DispatchIQ</span>
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-xl text-foreground/70 leading-relaxed">
                 Be among the first to revolutionize your field service operations with AI-powered dispatch optimization. 
                 Join our exclusive early access program and shape the future of intelligent dispatch.
               </p>
@@ -156,7 +156,7 @@ const EarlySignup = () => {
                     </div>
                     <div>
                       <h4 className="font-medium text-foreground">{benefit.title}</h4>
-                      <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                      <p className="text-sm text-foreground/70">{benefit.description}</p>
                     </div>
                   </div>
                 ))}
@@ -168,7 +168,7 @@ const EarlySignup = () => {
           <Card className="bg-card/80 backdrop-blur-sm border-secondary/20 shadow-teal-glow/20">
             <CardHeader className="text-center space-y-2">
               <CardTitle className="text-2xl font-bold">Join Early Access</CardTitle>
-              <CardDescription className="text-muted-foreground">
+              <CardDescription className="text-foreground/50">
                 Fill out the form below to get exclusive early access to DispatchIQ
               </CardDescription>
             </CardHeader>
@@ -290,7 +290,7 @@ const EarlySignup = () => {
                   )}
                 </Button>
 
-                <p className="text-xs text-muted-foreground text-center">
+                <p className="text-xs text-foreground/50 text-center">
                   By joining, you agree to receive updates about DispatchIQ. 
                   We respect your privacy and will never share your information.
                 </p>

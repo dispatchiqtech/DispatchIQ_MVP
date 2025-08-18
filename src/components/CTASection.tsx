@@ -26,7 +26,7 @@ const CTASection = () => {
             <div className="space-y-2">
               <DollarSign className="w-8 h-8 text-primary mx-auto" />
               <div className="text-2xl font-bold text-foreground">$100B+</div>
-              <div className="text-sm text-muted-foreground">Property Management Market</div>
+              <div className="text-sm text-foreground/90">Property Management Market</div>
             </div>
           </Card>
           
@@ -34,7 +34,7 @@ const CTASection = () => {
             <div className="space-y-2">
               <TrendingUp className="w-8 h-8 text-secondary mx-auto" />
               <div className="text-2xl font-bold text-foreground">Proven</div>
-              <div className="text-sm text-muted-foreground">Operations via FirstCall Data</div>
+              <div className="text-sm text-foreground/90">Operations via FirstCall Data</div>
             </div>
           </Card>
           
@@ -42,7 +42,7 @@ const CTASection = () => {
             <div className="space-y-2">
               <DollarSign className="w-8 h-8 text-accent mx-auto" />
               <div className="text-2xl font-bold text-foreground">SaaS +</div>
-              <div className="text-sm text-muted-foreground">Dispatch Fees = Recurring Revenue</div>
+              <div className="text-sm text-foreground/90">Dispatch Fees = Recurring Revenue</div>
             </div>
           </Card>
           
@@ -50,7 +50,7 @@ const CTASection = () => {
             <div className="space-y-2">
               <Users className="w-8 h-8 text-primary mx-auto" />
               <div className="text-2xl font-bold text-foreground">Workforce</div>
-              <div className="text-sm text-muted-foreground">Empowerment Through Success</div>
+              <div className="text-sm text-foreground/90">Empowerment Through Success</div>
             </div>
           </Card>
           
@@ -58,7 +58,7 @@ const CTASection = () => {
             <div className="space-y-2">
               <Building2 className="w-8 h-8 text-secondary mx-auto" />
               <div className="text-2xl font-bold text-foreground">Detroit</div>
-              <div className="text-sm text-muted-foreground">Tech Renaissance Story</div>
+              <div className="text-sm text-foreground/90">Tech Renaissance Story</div>
             </div>
           </Card>
         </div>
@@ -73,7 +73,7 @@ const CTASection = () => {
                   <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
                     <TrendingUp className="w-8 h-8 text-primary" />
                   </div>
-                  <span className="text-sm text-muted-foreground">Revenue Growth</span>
+                  <span className="text-sm text-foreground/90">Revenue Growth</span>
                 </div>
                 <div className="flex items-center">
                   <ArrowRight className="w-6 h-6 text-muted-foreground" />
@@ -82,7 +82,7 @@ const CTASection = () => {
                   <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center">
                     <Users className="w-8 h-8 text-secondary" />
                   </div>
-                  <span className="text-sm text-muted-foreground">Subcontractor Motivation</span>
+                  <span className="text-sm text-foreground/90">Subcontractor Motivation</span>
                 </div>
                 <div className="flex items-center">
                   <ArrowRight className="w-6 h-6 text-muted-foreground" />
@@ -91,7 +91,7 @@ const CTASection = () => {
                   <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center">
                     <DollarSign className="w-8 h-8 text-accent" />
                   </div>
-                  <span className="text-sm text-muted-foreground">Property Manager Savings</span>
+                  <span className="text-sm text-foreground/90">Property Manager Savings</span>
                 </div>
               </div>
             </div>
@@ -100,7 +100,7 @@ const CTASection = () => {
 
         {/* Investor CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <Button variant="hero" size="xl" className="group animate-pulse-glow">
+          <Button variant="hero" size="xl" className="group">
             <Calendar className="w-5 h-5" />
             View Funding Deck
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -122,12 +122,12 @@ const CTASection = () => {
             </span>
           </h2>
           
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-foreground/90 max-w-2xl mx-auto">
             Invest in the future of workforce AI. Partner in Detroit's next tech revolution.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button variant="hero" size="xl" className="group animate-pulse-glow">
+            <Button variant="hero" size="xl" className="group">
               <DollarSign className="w-5 h-5" />
               I'm an Investor
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -144,7 +144,7 @@ const CTASection = () => {
             </Button>
           </div>
           
-          <div className="pt-8 text-sm text-muted-foreground">
+          <div className="pt-8 text-sm text-foreground/90">
             <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-primary rounded-full"></div>

@@ -52,7 +52,7 @@ export default {
 					foreground: '#000000'
 				},
 				destructive: {
-					DEFAULT: '#FF4444',
+					DEFAULT: '#c40a0a',
 					foreground: '#FFFFFF'
 				},
 				popover: {
@@ -180,5 +180,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate") as any],
 } satisfies Config;
