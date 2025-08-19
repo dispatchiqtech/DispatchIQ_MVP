@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Zap, Users, TrendingUp, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 const EarlySignup = () => {
   const [formData, setFormData] = useState({
@@ -73,7 +74,13 @@ const EarlySignup = () => {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-mesh flex items-center justify-center px-6">
+      <>
+        <SEO
+          title="Early Access Signup - Join DispatchIQ"
+          description="Join DispatchIQ's early access program for exclusive updates, special pricing, and early access to our AI-powered dispatch system. Be among the first to revolutionize your property management."
+          keywords="DispatchIQ early access, join DispatchIQ, early signup, AI dispatch early access, property management software signup, dispatch software beta, maintenance automation early access"
+        />
+        <div className="min-h-screen bg-gradient-mesh flex items-center justify-center px-6">
         <Card className="w-full max-w-md text-center bg-card/80 backdrop-blur-sm border-primary/30 shadow-teal-glow">
           <CardContent className="pt-8 pb-8">
             <div className="w-20 h-20 bg-success/20 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -102,13 +109,20 @@ const EarlySignup = () => {
           </CardContent>
         </Card>
       </div>
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-mesh">
-      {/* Header */}
-      <div className="bg-card/80 backdrop-blur-sm border-b border-secondary/20">
+    <>
+      <SEO
+        title="Early Access Signup - Join DispatchIQ"
+        description="Join DispatchIQ's early access program for exclusive updates, special pricing, and early access to our AI-powered dispatch system. Be among the first to revolutionize your property management."
+        keywords="DispatchIQ early access, join DispatchIQ, early signup, AI dispatch early access, property management software signup, dispatch software beta, maintenance automation early access"
+      />
+      <div className="min-h-screen bg-gradient-mesh">
+        {/* Header */}
+        <div className="bg-card/80 backdrop-blur-sm border-b border-secondary/20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center space-x-2 group">
@@ -300,6 +314,7 @@ const EarlySignup = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
