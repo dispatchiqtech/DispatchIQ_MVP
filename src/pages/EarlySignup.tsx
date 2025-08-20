@@ -4,11 +4,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Zap, Users, TrendingUp, ArrowLeft } from "lucide-react";
+import { CheckCircle, Zap, Users, TrendingUp, ArrowLeft, AlertCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
+import { DatabaseService } from "@/lib/database";
+import { useToast } from "@/hooks/use-toast";
 
 const EarlySignup = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -20,6 +23,7 @@ const EarlySignup = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -32,26 +36,60 @@ const EarlySignup = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after showing success
-    setTimeout(() => {
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        company: "",
-        role: "",
-        industry: ""
+    try {
+      // Check if email already exists
+      const emailExists = await DatabaseService.checkEmailExists(formData.email);
+      if (emailExists) {
+        setError("This email is already registered. Please use a different email or contact us if you need assistance.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Prepare data for database
+      const signupData = {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company || null,
+        role: formData.role || null,
+        industry: formData.industry || null
+      };
+
+      // Save to Supabase
+      await DatabaseService.createEarlySignup(signupData);
+      
+      // Show success toast
+      toast({
+        title: "Welcome to DispatchIQ!",
+        description: "You've been successfully added to our early access program.",
+        duration: 5000,
       });
-      setIsSubmitted(false);
-    }, 5000);
+
+      setIsSubmitted(true);
+      
+      // Reset form after showing success
+      setTimeout(() => {
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          company: "",
+          role: "",
+          industry: ""
+        });
+        setIsSubmitted(false);
+      }, 5000);
+      
+    } catch (error) {
+      console.error('Signup error:', error);
+      setError("Something went wrong. Please try again or contact us for assistance.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const benefits = [
@@ -188,6 +226,16 @@ const EarlySignup = () => {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Error Display */}
+                {error && (
+                  <div className="p-4 bg-destructive/10 border border-destructive/30 rounded-md">
+                    <div className="flex items-center space-x-2">
+                      <AlertCircle className="w-4 h-4 text-destructive" />
+                      <span className="text-sm text-destructive">{error}</span>
+                    </div>
+                  </div>
+                )}
+                
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First Name *</Label>
