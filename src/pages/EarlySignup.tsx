@@ -1,17 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Zap, Users, TrendingUp, ArrowLeft, AlertCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import { CheckCircle, Zap, Users, TrendingUp, ArrowLeft, AlertCircle, Wrench, Building2 } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { DatabaseService } from "@/lib/database";
 import { useToast } from "@/hooks/use-toast";
 
 const EarlySignup = () => {
   const { toast } = useToast();
+  const location = useLocation();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -24,6 +25,22 @@ const EarlySignup = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [userRole, setUserRole] = useState<'technician' | 'property-owner' | null>(null);
+
+  // Get role from URL query parameter
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const role = searchParams.get('role') as 'technician' | 'property-owner' | null;
+    setUserRole(role);
+    
+    // Pre-fill role field if specified
+    if (role) {
+      setFormData(prev => ({
+        ...prev,
+        role: role === 'technician' ? 'technician' : 'property-owner'
+      }));
+    }
+  }, [location.search]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -54,8 +71,9 @@ const EarlySignup = () => {
         email: formData.email,
         phone: formData.phone,
         company: formData.company || null,
-        role: formData.role || null,
-        industry: formData.industry || null
+        role: formData.role || userRole || null,
+        industry: formData.industry || null,
+        user_type: userRole || 'general' // Add user type for better segmentation
       };
 
       // Save to Supabase
@@ -92,23 +110,65 @@ const EarlySignup = () => {
     }
   };
 
-  const benefits = [
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: "Early Access",
-      description: "Be among the first to experience AI-powered dispatch optimization"
-    },
-    {
-      icon: <Users className="w-6 h-6" />,
-      title: "Exclusive Updates",
-      description: "Get insider information on new features and product roadmap"
-    },
-    {
-      icon: <TrendingUp className="w-6 h-6" />,
-      title: "Special Pricing",
-      description: "Lock in founding customer rates and exclusive discounts"
+  const getBenefits = () => {
+    if (userRole === 'technician') {
+      return [
+        {
+          icon: <Wrench className="w-6 h-6" />,
+          title: "More Work Opportunities",
+          description: "Get matched with property maintenance jobs automatically"
+        },
+        {
+          icon: <TrendingUp className="w-6 h-6" />,
+          title: "Better Pay Rates",
+          description: "Access to premium jobs with competitive pricing"
+        },
+        {
+          icon: <Zap className="w-6 h-6" />,
+          title: "Smart Scheduling",
+          description: "AI-powered scheduling to maximize your efficiency"
+        }
+      ];
+    } else if (userRole === 'property-owner') {
+      return [
+        {
+          icon: <Building2 className="w-6 h-6" />,
+          title: "Cost Savings",
+          description: "Reduce maintenance costs by up to 30% with smart dispatch"
+        },
+        {
+          icon: <Zap className="w-6 h-6" />,
+          title: "Faster Response",
+          description: "Get technicians on-site in minutes, not hours"
+        },
+        {
+          icon: <Users className="w-6 h-6" />,
+          title: "Quality Assurance",
+          description: "Vetted technicians with proven track records"
+        }
+      ];
+    } else {
+      return [
+        {
+          icon: <Zap className="w-6 h-6" />,
+          title: "Early Access",
+          description: "Be among the first to experience AI-powered dispatch optimization"
+        },
+        {
+          icon: <Users className="w-6 h-6" />,
+          title: "Exclusive Updates",
+          description: "Get insider information on new features and product roadmap"
+        },
+        {
+          icon: <TrendingUp className="w-6 h-6" />,
+          title: "Special Pricing",
+          description: "Lock in founding customer rates and exclusive discounts"
+        }
+      ];
     }
-  ];
+  };
+
+  const benefits = getBenefits();
 
   if (isSubmitted) {
     return (
@@ -182,18 +242,30 @@ const EarlySignup = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <Badge variant="secondary" className="w-fit bg-primary/10 text-primary border-primary/20">
-                Join the Future
+                {userRole === 'technician' ? 'For Technicians' : 
+                 userRole === 'property-owner' ? 'For Property Owners' : 
+                 'Join the Future'}
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
                 <span className="bg-gradient-hero bg-clip-text text-transparent">
-                  Get Early Access
+                  {userRole === 'technician' ? 'Get More Work' :
+                   userRole === 'property-owner' ? 'Save Money & Time' :
+                   'Get Early Access'}
                 </span>
                 <br />
-                <span className="text-foreground">to DispatchIQ</span>
+                <span className="text-foreground">
+                  {userRole === 'technician' ? 'with Smart Dispatch' :
+                   userRole === 'property-owner' ? 'with AI Dispatch' :
+                   'to DispatchIQ'}
+                </span>
               </h1>
               <p className="text-xl text-foreground/70 leading-relaxed">
-                Be among the first to revolutionize your field service operations with AI-powered dispatch optimization. 
-                Join our exclusive early access program and shape the future of intelligent dispatch.
+                {userRole === 'technician' 
+                  ? "Join our network of skilled technicians and get matched with property maintenance jobs automatically. Increase your earnings with AI-powered scheduling and premium job opportunities."
+                  : userRole === 'property-owner'
+                  ? "Revolutionize your property maintenance with AI-powered dispatch. Reduce costs by up to 30% and get technicians on-site in minutes, not hours."
+                  : "Be among the first to revolutionize your field service operations with AI-powered dispatch optimization. Join our exclusive early access program and shape the future of intelligent dispatch."
+                }
               </p>
             </div>
 
@@ -236,7 +308,7 @@ const EarlySignup = () => {
                   </div>
                 )}
                 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First Name *</Label>
                     <Input
@@ -298,7 +370,7 @@ const EarlySignup = () => {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="role">Job Role</Label>
                     <select
@@ -307,13 +379,37 @@ const EarlySignup = () => {
                       value={formData.role}
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 bg-background border border-secondary/30 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50"
+                      disabled={!!userRole}
                     >
                       <option value="">Select Role</option>
-                      <option value="owner">Owner/Founder</option>
-                      <option value="manager">Operations Manager</option>
-                      <option value="dispatcher">Dispatcher</option>
-                      <option value="technician">Technician</option>
-                      <option value="other">Other</option>
+                      {userRole === 'technician' ? (
+                        <>
+                          <option value="technician">HVAC Technician</option>
+                          <option value="plumber">Plumber</option>
+                          <option value="electrician">Electrician</option>
+                          <option value="handyman">Handyman</option>
+                          <option value="landscaper">Landscaper</option>
+                          <option value="cleaner">Cleaner</option>
+                          <option value="other-technician">Other Technician</option>
+                        </>
+                      ) : userRole === 'property-owner' ? (
+                        <>
+                          <option value="property-owner">Property Owner</option>
+                          <option value="property-manager">Property Manager</option>
+                          <option value="facility-manager">Facility Manager</option>
+                          <option value="maintenance-coordinator">Maintenance Coordinator</option>
+                          <option value="real-estate-investor">Real Estate Investor</option>
+                          <option value="other-owner">Other</option>
+                        </>
+                      ) : (
+                        <>
+                          <option value="owner">Owner/Founder</option>
+                          <option value="manager">Operations Manager</option>
+                          <option value="dispatcher">Dispatcher</option>
+                          <option value="technician">Technician</option>
+                          <option value="other">Other</option>
+                        </>
+                      )}
                     </select>
                   </div>
                   <div className="space-y-2">
@@ -326,13 +422,39 @@ const EarlySignup = () => {
                       className="w-full px-3 py-2 bg-background border border-secondary/30 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50"
                     >
                       <option value="">Select Industry</option>
-                      <option value="hvac">HVAC</option>
-                      <option value="plumbing">Plumbing</option>
-                      <option value="electrical">Electrical</option>
-                      <option value="landscaping">Landscaping</option>
-                      <option value="cleaning">Cleaning Services</option>
-                      <option value="maintenance">Maintenance</option>
-                      <option value="other">Other</option>
+                      {userRole === 'technician' ? (
+                        <>
+                          <option value="hvac">HVAC</option>
+                          <option value="plumbing">Plumbing</option>
+                          <option value="electrical">Electrical</option>
+                          <option value="landscaping">Landscaping</option>
+                          <option value="cleaning">Cleaning Services</option>
+                          <option value="maintenance">General Maintenance</option>
+                          <option value="construction">Construction</option>
+                          <option value="other-technical">Other Technical</option>
+                        </>
+                      ) : userRole === 'property-owner' ? (
+                        <>
+                          <option value="residential">Residential Properties</option>
+                          <option value="commercial">Commercial Properties</option>
+                          <option value="industrial">Industrial Properties</option>
+                          <option value="healthcare">Healthcare Facilities</option>
+                          <option value="education">Educational Institutions</option>
+                          <option value="hospitality">Hospitality</option>
+                          <option value="retail">Retail</option>
+                          <option value="other-property">Other Property Types</option>
+                        </>
+                      ) : (
+                        <>
+                          <option value="hvac">HVAC</option>
+                          <option value="plumbing">Plumbing</option>
+                          <option value="electrical">Electrical</option>
+                          <option value="landscaping">Landscaping</option>
+                          <option value="cleaning">Cleaning Services</option>
+                          <option value="maintenance">Maintenance</option>
+                          <option value="other">Other</option>
+                        </>
+                      )}
                     </select>
                   </div>
                 </div>

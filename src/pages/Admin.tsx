@@ -33,6 +33,7 @@ const Admin = () => {
   const [analytics, setAnalytics] = useState<Analytics | null>(null);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const [roleFilter, setRoleFilter] = useState<string>("all");
   const [filteredSignups, setFilteredSignups] = useState<EarlySignup[]>([]);
 
   useEffect(() => {
@@ -40,15 +41,20 @@ const Admin = () => {
   }, []);
 
   useEffect(() => {
-    // Filter signups based on search term
-    const filtered = signups.filter(signup => 
-      signup.first_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      signup.last_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      signup.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      signup.company?.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    // Filter signups based on search term and role filter
+    const filtered = signups.filter(signup => {
+      const matchesSearch = 
+        signup.first_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        signup.last_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        signup.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        signup.company?.toLowerCase().includes(searchTerm.toLowerCase());
+      
+      const matchesRole = roleFilter === "all" || signup.user_type === roleFilter;
+      
+      return matchesSearch && matchesRole;
+    });
     setFilteredSignups(filtered);
-  }, [searchTerm, signups]);
+  }, [searchTerm, roleFilter, signups]);
 
   const loadData = async () => {
     try {
@@ -96,7 +102,7 @@ const Admin = () => {
   };
 
   const exportToCSV = () => {
-    const headers = ['First Name', 'Last Name', 'Email', 'Phone', 'Company', 'Role', 'Industry', 'Created At'];
+    const headers = ['First Name', 'Last Name', 'Email', 'Phone', 'User Type', 'Company', 'Role', 'Industry', 'Created At'];
     const csvContent = [
       headers.join(','),
       ...filteredSignups.map(signup => [
@@ -104,6 +110,7 @@ const Admin = () => {
         signup.last_name,
         signup.email,
         signup.phone,
+        signup.user_type || '',
         signup.company || '',
         signup.role || '',
         signup.industry || '',
@@ -210,8 +217,8 @@ const Admin = () => {
           {/* Search and Filters */}
           <Card className="border-0 shadow-card bg-card mb-6">
             <CardContent className="pt-6">
-              <div className="flex items-center space-x-4">
-                <div className="flex-1">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <div className="flex-1 w-full sm:w-auto">
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-foreground/40" />
                     <Input
@@ -222,7 +229,17 @@ const Admin = () => {
                     />
                   </div>
                 </div>
-                <Badge variant="secondary" className="bg-primary/10 text-primary">
+                <select
+                  value={roleFilter}
+                  onChange={(e) => setRoleFilter(e.target.value)}
+                  className="w-full sm:w-auto px-3 py-2 bg-background border border-secondary/30 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 text-sm"
+                >
+                  <option value="all">All Types</option>
+                  <option value="technician">Technicians</option>
+                  <option value="property-owner">Property Owners</option>
+                  <option value="general">General</option>
+                </select>
+                <Badge variant="secondary" className="bg-primary/10 text-primary w-fit">
                   {filteredSignups.length} results
                 </Badge>
               </div>
@@ -238,13 +255,15 @@ const Admin = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="overflow-x-auto">
-                <table className="w-full">
+              <div className="overflow-x-auto -mx-6 px-6">
+                <div className="min-w-[800px]">
+                  <table className="w-full">
                   <thead>
                     <tr className="border-b border-secondary/20">
                       <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Name</th>
                       <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Email</th>
                       <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Phone</th>
+                      <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Type</th>
                       <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Company</th>
                       <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Role</th>
                       <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Industry</th>
@@ -263,6 +282,26 @@ const Admin = () => {
                         </td>
                         <td className="py-3 px-4 text-foreground/80">{signup.email}</td>
                         <td className="py-3 px-4 text-foreground/80">{signup.phone}</td>
+                        <td className="py-3 px-4">
+                          {signup.user_type ? (
+                            <Badge 
+                              variant="outline" 
+                              className={`text-xs ${
+                                signup.user_type === 'technician' 
+                                  ? 'border-primary/30 text-primary' 
+                                  : signup.user_type === 'property-owner'
+                                  ? 'border-secondary/30 text-secondary'
+                                  : 'border-accent/30 text-accent'
+                              }`}
+                            >
+                              {signup.user_type === 'technician' ? 'Technician' :
+                               signup.user_type === 'property-owner' ? 'Property Owner' :
+                               signup.user_type}
+                            </Badge>
+                          ) : (
+                            <span className="text-foreground/40">-</span>
+                          )}
+                        </td>
                         <td className="py-3 px-4">
                           {signup.company ? (
                             <Badge variant="outline" className="text-xs">
@@ -297,13 +336,14 @@ const Admin = () => {
                     ))}
                   </tbody>
                 </table>
-                
-                {filteredSignups.length === 0 && (
-                  <div className="text-center py-8 text-foreground/60">
-                    No signups found matching your search criteria.
-                  </div>
-                )}
               </div>
+              
+              {filteredSignups.length === 0 && (
+                <div className="text-center py-8 text-foreground/60">
+                  No signups found matching your search criteria.
+                </div>
+              )}
+            </div>
             </CardContent>
           </Card>
         </div>

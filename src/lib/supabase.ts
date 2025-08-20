@@ -19,6 +19,7 @@ export interface EarlySignup {
   company?: string
   role?: string
   industry?: string
+  user_type?: string
   created_at?: string
   updated_at?: string
 }
