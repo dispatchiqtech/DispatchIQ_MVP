@@ -49,7 +49,7 @@ const Admin = () => {
         signup.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
         signup.company?.toLowerCase().includes(searchTerm.toLowerCase());
       
-      const matchesRole = roleFilter === "all" || signup.user_type === roleFilter;
+      const matchesRole = roleFilter === "all" || signup.role === roleFilter;
       
       return matchesSearch && matchesRole;
     });
@@ -102,7 +102,7 @@ const Admin = () => {
   };
 
   const exportToCSV = () => {
-    const headers = ['First Name', 'Last Name', 'Email', 'Phone', 'User Type', 'Company', 'Role', 'Industry', 'Created At'];
+    const headers = ['First Name', 'Last Name', 'Email', 'Phone', 'Company', 'Role', 'Industry', 'Created At'];
     const csvContent = [
       headers.join(','),
       ...filteredSignups.map(signup => [
@@ -110,7 +110,6 @@ const Admin = () => {
         signup.last_name,
         signup.email,
         signup.phone,
-        signup.user_type || '',
         signup.company || '',
         signup.role || '',
         signup.industry || '',
@@ -263,7 +262,6 @@ const Admin = () => {
                       <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Name</th>
                       <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Email</th>
                       <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Phone</th>
-                      <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Type</th>
                       <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Company</th>
                       <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Role</th>
                       <th className="text-left py-3 px-4 text-sm font-medium text-foreground/70">Industry</th>
@@ -282,26 +280,6 @@ const Admin = () => {
                         </td>
                         <td className="py-3 px-4 text-foreground/80">{signup.email}</td>
                         <td className="py-3 px-4 text-foreground/80">{signup.phone}</td>
-                        <td className="py-3 px-4">
-                          {signup.user_type ? (
-                            <Badge 
-                              variant="outline" 
-                              className={`text-xs ${
-                                signup.user_type === 'technician' 
-                                  ? 'border-primary/30 text-primary' 
-                                  : signup.user_type === 'property-owner'
-                                  ? 'border-secondary/30 text-secondary'
-                                  : 'border-accent/30 text-accent'
-                              }`}
-                            >
-                              {signup.user_type === 'technician' ? 'Technician' :
-                               signup.user_type === 'property-owner' ? 'Property Owner' :
-                               signup.user_type}
-                            </Badge>
-                          ) : (
-                            <span className="text-foreground/40">-</span>
-                          )}
-                        </td>
                         <td className="py-3 px-4">
                           {signup.company ? (
                             <Badge variant="outline" className="text-xs">

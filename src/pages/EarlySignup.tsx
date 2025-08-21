@@ -35,9 +35,10 @@ const EarlySignup = () => {
     
     // Pre-fill role field if specified
     if (role) {
+      const roleValue = role === 'technician' ? 'maintenance' : 'property-owner';
       setFormData(prev => ({
         ...prev,
-        role: role === 'technician' ? 'technician' : 'property-owner'
+        role: roleValue
       }));
     }
   }, [location.search]);
@@ -72,8 +73,7 @@ const EarlySignup = () => {
         phone: formData.phone,
         company: formData.company || null,
         role: formData.role || userRole || null,
-        industry: formData.industry || null,
-        user_type: userRole || 'general' // Add user type for better segmentation
+        industry: formData.industry || null
       };
 
       // Save to Supabase
@@ -96,7 +96,7 @@ const EarlySignup = () => {
           email: "",
           phone: "",
           company: "",
-          role: "",
+          role: userRole === 'technician' ? 'maintenance' : (userRole || ""), // Keep maintenance as default for technicians
           industry: ""
         });
         setIsSubmitted(false);
@@ -384,7 +384,8 @@ const EarlySignup = () => {
                       <option value="">Select Role</option>
                       {userRole === 'technician' ? (
                         <>
-                          <option value="technician">HVAC Technician</option>
+                          <option value="technician">Technician</option>
+                          <option value="maintenance">Maintenance</option>
                           <option value="plumber">Plumber</option>
                           <option value="electrician">Electrician</option>
                           <option value="handyman">Handyman</option>
@@ -424,12 +425,12 @@ const EarlySignup = () => {
                       <option value="">Select Industry</option>
                       {userRole === 'technician' ? (
                         <>
-                          <option value="hvac">HVAC</option>
+                          <option value="maintenance">Maintenance</option>
                           <option value="plumbing">Plumbing</option>
                           <option value="electrical">Electrical</option>
                           <option value="landscaping">Landscaping</option>
                           <option value="cleaning">Cleaning Services</option>
-                          <option value="maintenance">General Maintenance</option>
+                          <option value="general-maintenance">General Maintenance</option>
                           <option value="construction">Construction</option>
                           <option value="other-technical">Other Technical</option>
                         </>
@@ -446,7 +447,7 @@ const EarlySignup = () => {
                         </>
                       ) : (
                         <>
-                          <option value="hvac">HVAC</option>
+                          <option value="maintenance">Maintenance</option>
                           <option value="plumbing">Plumbing</option>
                           <option value="electrical">Electrical</option>
                           <option value="landscaping">Landscaping</option>
