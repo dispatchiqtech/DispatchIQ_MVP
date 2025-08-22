@@ -45,6 +45,11 @@ const HeroSection = () => {
             <span className="text-foreground">To Think</span>
           </h1>
           
+          {/* Tagline */}
+          <p className="text-lg md:text-xl text-primary font-medium max-w-2xl mx-auto leading-relaxed">
+            "AI-powered dispatch that matches the right technician, every time."
+          </p>
+          
           {/* Subheadline - Updated to match mockup */}
           <p className="text-xl md:text-2xl text-foreground/70 max-w-3xl mx-auto leading-relaxed">
             The first AI-powered dispatch system revolutionizing property maintenance.
