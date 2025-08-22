@@ -22,19 +22,19 @@ const Header = () => {
             
             {/* Navigation */}
             <nav className="hidden md:flex items-center gap-8">
-              <a href="#problem" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+              <a href="#problem" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
                 Problem
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <a href="#ecosystem" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+              <a href="#ecosystem" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
                 Ecosystem
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <a href="#detroit" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+              <a href="#detroit" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
                 Detroit Story
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
-              <a href="#investor" className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+              <a href="#investor" className="text-foreground/80 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
                 Investor Value
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
@@ -43,7 +43,7 @@ const Header = () => {
             {/* CTA */}
             {/* Desktop Buttons */}
             <div className="hidden md:flex items-center gap-4">
-              <Button variant="ghost" size="sm" className="hover:bg-muted/50 transition-all duration-300">
+              <Button variant="ghost" size="sm" className="hover:bg-muted/50 transition-all duration-300 text-foreground/80">
                 Contact
               </Button>
               <Button asChild variant="outline" size="sm" className="border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300">
@@ -102,28 +102,28 @@ const Header = () => {
             <nav className="p-6 space-y-6 relative z-10">
               <a 
                 href="#problem" 
-                className="block text-lg text-muted-foreground hover:text-primary transition-all duration-300 py-3 border-b border-border/20 hover:bg-card/50 rounded-lg px-3 -mx-3"
+                className="block text-lg text-foreground/80 hover:text-primary transition-all duration-300 py-3 border-b border-border/20 hover:bg-card/50 rounded-lg px-3 -mx-3"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Problem
               </a>
               <a 
                 href="#ecosystem" 
-                className="block text-lg text-muted-foreground hover:text-primary transition-all duration-300 py-3 border-b border-border/20 hover:bg-card/50 rounded-lg px-3 -mx-3"
+                className="block text-lg text-foreground/80 hover:text-primary transition-all duration-300 py-3 border-b border-border/20 hover:bg-card/50 rounded-lg px-3 -mx-3"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Ecosystem
               </a>
               <a 
                 href="#detroit" 
-                className="block text-lg text-muted-foreground hover:text-primary transition-all duration-300 py-3 border-b border-border/20 hover:bg-card/50 rounded-lg px-3 -mx-3"
+                className="block text-lg text-foreground/80 hover:text-primary transition-all duration-300 py-3 border-b border-border/20 hover:bg-card/50 rounded-lg px-3 -mx-3"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Detroit Story
               </a>
               <a 
                 href="#investor" 
-                className="block text-lg text-muted-foreground hover:text-primary transition-all duration-300 py-3 border-b border-border/20 hover:bg-card/50 rounded-lg px-3 -mx-3"
+                className="block text-lg text-foreground/80 hover:text-primary transition-all duration-300 py-3 border-b border-border/20 hover:bg-card/50 rounded-lg px-3 -mx-3"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Investor Value
