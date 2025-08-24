@@ -12,9 +12,9 @@ const Header = () => {
       <header className="fixed top-0 w-full z-50 bg-background/85 backdrop-blur-md border-b border-border/60 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+      
             <div className="flex items-center gap-2 group">
-              <div className="w-32 h-8 rounded-lg flex items-center justify-center shadow-md group-hover:shadow-teal-glow transition-all duration-300 group-hover:scale-110">
+              <div className="w-40 h-8 rounded-lg flex items-center mt-2 justify-center shadow-md group-hover:shadow-teal-glow transition-all duration-300 group-hover:scale-110">
                 <img src={logo} alt="DispatchIQ" />
               </div>
               {/* <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">DispatchIQ</span> */}
