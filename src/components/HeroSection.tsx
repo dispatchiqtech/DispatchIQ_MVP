@@ -36,6 +36,12 @@ const HeroSection = () => {
             <span className="text-sm font-medium text-foreground/70">AI-Powered Dispatch System</span>
           </div>
           
+          {/* Coming Soon Badge */}
+          <div className="inline-flex ml-2 items-center gap-2 bg-gradient-to-r from-accent/10 to-primary/10 backdrop-blur-sm border border-accent/40 rounded-full px-6 py-2 shadow-lg animate-pulse">
+            <div className="w-4 h-4 bg-accent rounded-full animate-ping" />
+            <span className="text-sm font-semibold text-accent">Coming Soon</span>
+          </div>
+          
           {/* Main Headline - Updated to match mockup */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
             <span className="bg-gradient-hero bg-clip-text text-transparent">
@@ -46,14 +52,39 @@ const HeroSection = () => {
           </h1>
           
           {/* Tagline */}
-          <p className="text-lg md:text-xl text-primary font-medium max-w-2xl mx-auto leading-relaxed">
+          {/* <p className="text-lg md:text-xl text-primary font-medium max-w-2xl mx-auto leading-relaxed">
             "AI-powered dispatch that matches the right technician, every time."
-          </p>
+          </p> */}
           
           {/* Subheadline - Updated to match mockup */}
-          <p className="text-xl md:text-2xl text-foreground/70 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-primary font-medium max-w-2xl mx-auto leading-relaxed">
             The first AI-powered dispatch system revolutionizing property maintenance.
           </p>
+          
+          {/* Early Access Writeup */}
+          <div className="bg-card/40 backdrop-blur-sm border border-primary/20 rounded-2xl p-8 max-w-4xl mx-auto">
+            <div className="text-center space-y-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                Be Among the First to Experience the Future
+              </h2>
+              <p className="text-lg text-foreground/80 leading-relaxed">
+                Join our exclusive early access program and get priority access to DispatchIQ when we launch. 
+                Early adopters will receive special pricing, and the 
+                opportunity to shape the future of AI-powered maintenance dispatch.
+              </p>
+              <div className="flex flex-wrap justify-center gap-6 text-sm text-foreground/70">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full" />
+                  <span>Exclusive early access</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-accent rounded-full" />
+                  <span>Special launch pricing</span>
+                </div>
+          
+              </div>
+            </div>
+          </div>
           
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
