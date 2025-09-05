@@ -151,8 +151,8 @@ const FeaturesSection = () => {
         </div>
 
         {/* Testimonials Section */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+        <div className="text-center mb-16 animate-fade-in-up mt-8">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               What Our Users Say
             </span>

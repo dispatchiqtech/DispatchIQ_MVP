@@ -102,10 +102,10 @@ const GovernmentSection = () => {
 
         {/* CTA */}
         <div className="text-center px-4">
-          <Button size="lg" className="bg-gradient-primary hover:bg-gradient-primary/90 text-black px-6 md:px-8 py-3 text-base md:text-lg shadow-glow w-full max-w-md">
+          <Button size="lg" className="bg-gradient-primary hover:bg-gradient-primary/90 text-black px-6 md:px-8 py-3 text-sm md:text-base shadow-glow w-full max-w-lg">
             <Handshake className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-            <span className="hidden sm:inline">Partner with us to build a stronger, more resilient U.S. workforce</span>
-            <span className="sm:hidden">Partner with us for workforce resilience</span>
+            <span className="hidden sm:inline">Partner with us to build a stronger U.S. workforce</span>
+            <span className="sm:hidden">Partner for workforce resilience</span>
           </Button>
         </div>
       </div>

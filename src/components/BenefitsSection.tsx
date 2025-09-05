@@ -39,7 +39,7 @@ const ecosystemPartners = [
 
 const BenefitsSection = () => {
   return (
-    <section id="ecosystem" className="py-24 bg-background">
+    <section id="ecosystem" className=" bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in-up">
